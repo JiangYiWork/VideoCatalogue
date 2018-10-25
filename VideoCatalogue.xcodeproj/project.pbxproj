@@ -17,6 +17,16 @@
 		A2D4818421809D4C009E6E9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2D4818221809D4C009E6E9F /* LaunchScreen.storyboard */; };
 		A2D4818F21809D4C009E6E9F /* VideoCatalogueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D4818E21809D4C009E6E9F /* VideoCatalogueTests.swift */; };
 		A2D4819A21809D4C009E6E9F /* VideoCatalogueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D4819921809D4C009E6E9F /* VideoCatalogueUITests.swift */; };
+		A2D481EB2181E1C5009E6E9F /* catalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481EA2181E1C5009E6E9F /* catalogue.swift */; };
+		A2D481EC2181E1C5009E6E9F /* catalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481EA2181E1C5009E6E9F /* catalogue.swift */; };
+		A2D481EE2181F6FF009E6E9F /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481ED2181F6FF009E6E9F /* ApiService.swift */; };
+		A2D481EF2181F6FF009E6E9F /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481ED2181F6FF009E6E9F /* ApiService.swift */; };
+		A2D481F121820891009E6E9F /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481F021820891009E6E9F /* ApiClient.swift */; };
+		A2D481F221820891009E6E9F /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481F021820891009E6E9F /* ApiClient.swift */; };
+		A2D481F421820F25009E6E9F /* VideoCatalogueAPIResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A2D481F321820F25009E6E9F /* VideoCatalogueAPIResponse.json */; };
+		A2D481F521820F25009E6E9F /* VideoCatalogueAPIResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A2D481F321820F25009E6E9F /* VideoCatalogueAPIResponse.json */; };
+		A2D481F721820F55009E6E9F /* VideoCatalogueAPIResponse_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = A2D481F621820F55009E6E9F /* VideoCatalogueAPIResponse_empty.json */; };
+		A2D481F821820F55009E6E9F /* VideoCatalogueAPIResponse_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = A2D481F621820F55009E6E9F /* VideoCatalogueAPIResponse_empty.json */; };
 		E5222FC93312CC65E155090F /* Pods_VideoCatalogueUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2BFD9173A7E0CFD91A2ABB /* Pods_VideoCatalogueUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +70,11 @@
 		A2D4819521809D4C009E6E9F /* VideoCatalogueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoCatalogueUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D4819921809D4C009E6E9F /* VideoCatalogueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCatalogueUITests.swift; sourceTree = "<group>"; };
 		A2D4819B21809D4C009E6E9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2D481EA2181E1C5009E6E9F /* catalogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = catalogue.swift; sourceTree = "<group>"; };
+		A2D481ED2181F6FF009E6E9F /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		A2D481F021820891009E6E9F /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		A2D481F321820F25009E6E9F /* VideoCatalogueAPIResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = VideoCatalogueAPIResponse.json; sourceTree = "<group>"; };
+		A2D481F621820F55009E6E9F /* VideoCatalogueAPIResponse_empty.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = VideoCatalogueAPIResponse_empty.json; sourceTree = "<group>"; };
 		DD48BA930081C11D658F723F /* Pods-VideoCatalogue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoCatalogue.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoCatalogue/Pods-VideoCatalogue.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,7 +158,7 @@
 				A2D481A721817243009E6E9F /* View */,
 				A2D481AA218172AC009E6E9F /* ViewModel */,
 				A2D481A821817250009E6E9F /* Model */,
-				A2D481A921817287009E6E9F /* Helper */,
+				A2D481A921817287009E6E9F /* ServerManager */,
 				A2D4817821809D4A009E6E9F /* ViewController.swift */,
 				A2D4817A21809D4A009E6E9F /* Main.storyboard */,
 				A2D4818021809D4C009E6E9F /* Assets.xcassets */,
@@ -159,6 +174,8 @@
 			children = (
 				A2D4818E21809D4C009E6E9F /* VideoCatalogueTests.swift */,
 				A2D4819021809D4C009E6E9F /* Info.plist */,
+				A2D481F321820F25009E6E9F /* VideoCatalogueAPIResponse.json */,
+				A2D481F621820F55009E6E9F /* VideoCatalogueAPIResponse_empty.json */,
 			);
 			path = VideoCatalogueTests;
 			sourceTree = "<group>";
@@ -182,15 +199,18 @@
 		A2D481A821817250009E6E9F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A2D481EA2181E1C5009E6E9F /* catalogue.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		A2D481A921817287009E6E9F /* Helper */ = {
+		A2D481A921817287009E6E9F /* ServerManager */ = {
 			isa = PBXGroup;
 			children = (
+				A2D481ED2181F6FF009E6E9F /* ApiService.swift */,
+				A2D481F021820891009E6E9F /* ApiClient.swift */,
 			);
-			path = Helper;
+			path = ServerManager;
 			sourceTree = "<group>";
 		};
 		A2D481AA218172AC009E6E9F /* ViewModel */ = {
@@ -309,8 +329,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2D4818421809D4C009E6E9F /* LaunchScreen.storyboard in Resources */,
+				A2D481F721820F55009E6E9F /* VideoCatalogueAPIResponse_empty.json in Resources */,
 				A2D4818121809D4C009E6E9F /* Assets.xcassets in Resources */,
 				A2D4817C21809D4A009E6E9F /* Main.storyboard in Resources */,
+				A2D481F421820F25009E6E9F /* VideoCatalogueAPIResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +340,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2D481F521820F25009E6E9F /* VideoCatalogueAPIResponse.json in Resources */,
+				A2D481F821820F55009E6E9F /* VideoCatalogueAPIResponse_empty.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,8 +451,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2D4817921809D4A009E6E9F /* ViewController.swift in Sources */,
+				A2D481EE2181F6FF009E6E9F /* ApiService.swift in Sources */,
 				A2D4817F21809D4A009E6E9F /* VideoCatalogue.xcdatamodeld in Sources */,
 				A2D4817721809D4A009E6E9F /* AppDelegate.swift in Sources */,
+				A2D481EB2181E1C5009E6E9F /* catalogue.swift in Sources */,
+				A2D481F121820891009E6E9F /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +464,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2D4818F21809D4C009E6E9F /* VideoCatalogueTests.swift in Sources */,
+				A2D481EC2181E1C5009E6E9F /* catalogue.swift in Sources */,
+				A2D481EF2181F6FF009E6E9F /* ApiService.swift in Sources */,
+				A2D481F221820891009E6E9F /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
