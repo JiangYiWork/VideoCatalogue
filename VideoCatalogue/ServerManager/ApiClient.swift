@@ -33,11 +33,7 @@ extension ApiClient {
         if let error = error {
             completionHandler(nil, RequestError(error.localizedDescription))
         } else if let data = data {
-            do {
-                completionHandler(data, nil)
-            } catch let error {
-                completionHandler(nil, RequestError(error.localizedDescription))
-            }
+            completionHandler(data, nil)
         }
     }
     

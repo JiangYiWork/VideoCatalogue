@@ -31,10 +31,11 @@ struct RequestError : LocalizedError {
 
 enum ApiConfig {
     case videoCatalogue
-    //We can extend to call other service API
+    //We can extend to call other service or other API
     
     //VC: VideoCatalogue
     fileprivate static let VCBaseUrl = "https://s3-ap-southeast-2.amazonaws.com"
+    fileprivate static let VCApiVersion = "" //If we need API version in the future.
     
     var urlPath: String {
         switch self {

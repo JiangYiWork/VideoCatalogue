@@ -24,21 +24,60 @@ class VideoCatalogueTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
-    func testVideoCatalogueApiServiceWithCorrectApi() {
+    func testVideoCatalogueApiService() {
         let apiClient = ApiClient()
-        self.measure {
-            apiClient.networkRequest(.videoCatalogue
-                , completionHandler: { (data, error) in
-                    guard let data = data else {
-                        print("Error: \(error)")
-                        return
-                    }
-                    
-            })
-        }
+        apiClient.networkRequest(.videoCatalogue
+            , completionHandler: { (data, error) in
+                guard let data = data else {
+                    print("Error: \(error.debugDescription)")
+                    return
+                }
+                let decoder = JSONDecoder()
+                do {
+                    let model = try decoder.decode([Catalogue].self, from: data)
+                    XCTAssertTrue(model.count > 0)
+                    dump(model)
+                } catch {
+                    XCTFail()
+                }
+        })
     }
     
-    func testVideoCatalogueModelBasedOnMockData() {
+    func testVideoCatalogueModelWithCorrectMockData() {
+        let apiClient = MockApiClient()
+        apiClient.jsonFileName = .vcResponse_correct
+        apiClient.networkRequest(.videoCatalogue) { (data, error) in
+            XCTAssertTrue(data != nil)
+            if let data = data {
+                let decoder = JSONDecoder()
+                let model = try! decoder.decode([Catalogue].self, from: data)
+                XCTAssertTrue(model.count > 0)
+                dump(model)
+            } else {
+                if let error = error {
+                    print("Error: \(error)")
+                }
+                XCTAssert(error == nil, "The Mock Data should be all right. But not here!")
+            }
+        }
+        
+    }
+    
+    func testVideoCatalogueModelWithEmptyMockData() {
+        let apiClient = MockApiClient()
+        apiClient.jsonFileName = .vcResponse_empty
+        apiClient.networkRequest(.videoCatalogue) { (data, error) in
+            if let data = data {
+                let decoder = JSONDecoder()
+                let model = try! decoder.decode([Catalogue].self, from: data)
+                XCTAssertTrue(model.count == 0)
+                dump(model)
+            } else {
+                if let error = error {
+                    print("Error: \(error)")
+                }
+            }
+        }
         
     }
 
@@ -48,32 +87,31 @@ class VideoCatalogueTests: XCTestCase {
 class MockApiClient: ApiClient {
     
     enum JsonFileName: String {
-        case vcResponse = "VideoCatalogueAPIResponse"
+        case vcResponse_correct = "VideoCatalogueAPIResponse"
         case vcResponse_empty = "VideoCatalogueAPIResponse_empty"
+        case vcResponse_incorrect = "VideoCatalogueAPIResponse_incorrect"
     }
     
-    var jsonFileName = JsonFileName.vcResponse
+    var jsonFileName: JsonFileName = .vcResponse_correct
     
     //Use mock response data
     override func networkRequest(_ config: ApiConfig, completionHandler: @escaping ((Data?, RequestError?) -> Void)) {
-        guard let json = JsonFileLoader.loadJson(fileName: jsonFileName.rawValue) as? Data else {
+        guard let jsonData = JsonFileLoader.loadJson(fileName: jsonFileName.rawValue) else {
             completionHandler(nil, RequestError("Video Catalogue information failed."))
             return
         }
-        completionHandler(json, nil)
+        completionHandler(jsonData, nil)
     }
 }
 
 class JsonFileLoader {
     
-    class func loadJson(fileName: String) -> Any? {
+    class func loadJson(fileName: String) -> Data? {
         if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
-            if let data = NSData(contentsOf: url) {
-                do {
-                    return try JSONSerialization.jsonObject(with: data as Data, options: JSONSerialization.ReadingOptions(rawValue: 0))
-                } catch {
-                    print("Error!! Unable to parse  \(fileName).json")
-                }
+            do {
+                return try NSData(contentsOf: url) as Data
+            } catch let error {
+                print("Error!! Unable to parse  \(fileName).json\n error: \(error)")
             }
             print("Error!! Unable to load  \(fileName).json")
         } else {
