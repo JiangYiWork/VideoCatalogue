@@ -52,6 +52,7 @@ class CatalogueTableViewController: UIViewController {
         
         viewModel.didUpdateCatalogue = { [weak self] () in
             DispatchQueue.main.async {
+                self?.viewModel.arrangeCatalogues()
                 self?.tableView.reloadData()
                 self?.refreshControl.endRefreshing()
             }
@@ -107,12 +108,12 @@ extension CatalogueTableViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CatalogueCell", for: indexPath) as! CatalogueTableViewCell
-        cell.catalogue = viewModel.catalogue[indexPath.section]
+        cell.catalogue = viewModel.catalogues[indexPath.section]
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let isFeatures = viewModel.catalogue[indexPath.section].category?.caseInsensitiveCompare("Features") == .orderedSame
+        let isFeatures = viewModel.catalogues[indexPath.section].category?.caseInsensitiveCompare("Features") == .orderedSame
         return isFeatures ? 143 : 205
     }
 

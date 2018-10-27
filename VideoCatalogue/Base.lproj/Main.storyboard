@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bou-8g-IDj">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad10_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,25 +14,25 @@
             <objects>
                 <viewController id="Bou-8g-IDj" customClass="CatalogueTableViewController" customModule="VideoCatalogue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nbb-gS-Qdr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ud2-N3-ZSh">
-                                <rect key="frame" x="177.5" y="333.5" width="20" height="20"/>
+                                <rect key="frame" x="546" y="417" width="20" height="20"/>
                             </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="r9S-hs-6jU">
-                                <rect key="frame" x="0.0" y="10" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="10" width="1390" height="556"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CatalogueCell" rowHeight="150" id="dMH-j6-HIb" customClass="CatalogueTableViewCell" customModule="VideoCatalogue" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="150"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="1112" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dMH-j6-HIb" id="UMI-T2-QYj">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1112" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3Ey-ST-zr5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="1571" height="149.5"/>
                                                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Abc-Dl-jiT">
                                                         <size key="itemSize" width="50" height="50"/>
@@ -111,6 +111,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3H9-tS-tvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1415.2" y="114.69265367316342"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9Cp-bW-HPp">
+            <objects>
+                <viewController id="2vZ-F9-pqK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m2Q-IN-UNV">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W2S-mT-zXM">
+                                <rect key="frame" x="208" y="239" width="696" height="356"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="W2S-mT-zXM" firstAttribute="centerX" secondItem="m2Q-IN-UNV" secondAttribute="centerX" id="7pS-ps-iXS"/>
+                            <constraint firstItem="WAd-OX-rsR" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="W2S-mT-zXM" secondAttribute="bottom" constant="239" id="CTv-6k-JSR"/>
+                            <constraint firstItem="WAd-OX-rsR" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="W2S-mT-zXM" secondAttribute="trailing" constant="208" id="PnC-8p-hhZ"/>
+                            <constraint firstItem="W2S-mT-zXM" firstAttribute="leading" relation="lessThanOrEqual" secondItem="WAd-OX-rsR" secondAttribute="leading" constant="208" id="ZCK-QA-DFs"/>
+                            <constraint firstItem="W2S-mT-zXM" firstAttribute="top" relation="lessThanOrEqual" secondItem="WAd-OX-rsR" secondAttribute="top" constant="219" id="cwq-yj-alR"/>
+                            <constraint firstItem="W2S-mT-zXM" firstAttribute="centerY" secondItem="m2Q-IN-UNV" secondAttribute="centerY" id="iHY-KT-IvW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WAd-OX-rsR"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qIk-W7-weM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2290" y="115"/>
         </scene>
     </scenes>
 </document>

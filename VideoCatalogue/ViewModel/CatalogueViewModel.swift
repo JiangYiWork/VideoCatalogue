@@ -12,7 +12,7 @@ class CatalogueViewModel {
     
     let apiClient: ApiClient
     
-    var catalogue = [Catalogue]() {
+    var catalogues = [Catalogue]() {
         didSet {
             didUpdateCatalogue?()
         }
@@ -32,7 +32,7 @@ class CatalogueViewModel {
     
     // MARK: - TableView
     var numberOfSections: Int {
-        return catalogue.count
+        return catalogues.count
     }
     
     // MARK: - Events
@@ -58,7 +58,7 @@ class CatalogueViewModel {
             if let data = data {
                 do {
                     let decoder = JSONDecoder()
-                    strongSelf.catalogue = try decoder.decode([Catalogue].self, from: data)
+                    strongSelf.catalogues = try decoder.decode([Catalogue].self, from: data)
                 } catch {
                     strongSelf.alertMessage = "Can't decode API response"
                 }
@@ -68,17 +68,17 @@ class CatalogueViewModel {
     }
     
     func getNumberOfCells(in section: Int) -> Int {
-        guard catalogue.count > 0,
-            section < catalogue.count,
-            let items = catalogue[section].items
+        guard catalogues.count > 0,
+            section < catalogues.count,
+            let items = catalogues[section].items
         else { return 0 }
         return items.count
     }
     
     func getItem(in section: Int, at index: Int) -> Item? {
-        guard catalogue.count > 0,
-            section < catalogue.count,
-            let items = catalogue[section].items,
+        guard catalogues.count > 0,
+            section < catalogues.count,
+            let items = catalogues[section].items,
             items.count > 0,
             index < items.count
         else { return nil }
@@ -86,10 +86,29 @@ class CatalogueViewModel {
     }
     
     func getCatalogueTitle(for section: Int) -> String? {
-        guard catalogue.count > 0,
-            section < catalogue.count
+        guard catalogues.count > 0,
+            section < catalogues.count
             else { return nil }
-        return catalogue[section].category
+        return catalogues[section].category
     }
     
+    func arrangeCatalogues() {
+        if catalogues.count == 3  {
+            var newCatalogues = [Catalogue?]()
+            newCatalogues.append(nil)
+            newCatalogues.append(nil)
+            newCatalogues.append(nil)
+            for catalogue in catalogues {
+                if catalogue.category?.caseInsensitiveCompare("Features") == .orderedSame {
+                    newCatalogues[0] = catalogue
+                } else if catalogue.category?.caseInsensitiveCompare("Movies") == .orderedSame {
+                    newCatalogues[1] = catalogue
+                } else if catalogue.category?.caseInsensitiveCompare("TV Shows") == .orderedSame {
+                    newCatalogues[2] = catalogue
+                }
+            }
+            catalogues = newCatalogues as! [Catalogue]
+        }
+    }
 }
+
