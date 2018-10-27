@@ -15,7 +15,7 @@
 		A2D4817F21809D4A009E6E9F /* VideoCatalogue.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2D4817D21809D4A009E6E9F /* VideoCatalogue.xcdatamodeld */; };
 		A2D4818121809D4C009E6E9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2D4818021809D4C009E6E9F /* Assets.xcassets */; };
 		A2D4818421809D4C009E6E9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2D4818221809D4C009E6E9F /* LaunchScreen.storyboard */; };
-		A2D4818F21809D4C009E6E9F /* VideoCatalogueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D4818E21809D4C009E6E9F /* VideoCatalogueTests.swift */; };
+		A2D4818F21809D4C009E6E9F /* ApiClientAndModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D4818E21809D4C009E6E9F /* ApiClientAndModelTests.swift */; };
 		A2D4819A21809D4C009E6E9F /* VideoCatalogueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D4819921809D4C009E6E9F /* VideoCatalogueUITests.swift */; };
 		A2D481EB2181E1C5009E6E9F /* catalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481EA2181E1C5009E6E9F /* catalogue.swift */; };
 		A2D481EC2181E1C5009E6E9F /* catalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481EA2181E1C5009E6E9F /* catalogue.swift */; };
@@ -29,6 +29,10 @@
 		A2D481F821820F55009E6E9F /* VideoCatalogueAPIResponse_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = A2D481F621820F55009E6E9F /* VideoCatalogueAPIResponse_empty.json */; };
 		A2D481FA2182D2CF009E6E9F /* VideoCatalogueAPIResponse_incorrect.json in Resources */ = {isa = PBXBuildFile; fileRef = A2D481F92182D2CF009E6E9F /* VideoCatalogueAPIResponse_incorrect.json */; };
 		A2D481FB2182D2CF009E6E9F /* VideoCatalogueAPIResponse_incorrect.json in Resources */ = {isa = PBXBuildFile; fileRef = A2D481F92182D2CF009E6E9F /* VideoCatalogueAPIResponse_incorrect.json */; };
+		A2D481FD218333D7009E6E9F /* CatalogueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481FC218333D7009E6E9F /* CatalogueViewModel.swift */; };
+		A2D481FE218333D7009E6E9F /* CatalogueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481FC218333D7009E6E9F /* CatalogueViewModel.swift */; };
+		A2D4820021833455009E6E9F /* VideoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481FF21833455009E6E9F /* VideoDetailViewModel.swift */; };
+		A2D4820121833455009E6E9F /* VideoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481FF21833455009E6E9F /* VideoDetailViewModel.swift */; };
 		E5222FC93312CC65E155090F /* Pods_VideoCatalogueUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2BFD9173A7E0CFD91A2ABB /* Pods_VideoCatalogueUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +71,7 @@
 		A2D4818321809D4C009E6E9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2D4818521809D4C009E6E9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2D4818A21809D4C009E6E9F /* VideoCatalogueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoCatalogueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2D4818E21809D4C009E6E9F /* VideoCatalogueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCatalogueTests.swift; sourceTree = "<group>"; };
+		A2D4818E21809D4C009E6E9F /* ApiClientAndModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientAndModelTests.swift; sourceTree = "<group>"; };
 		A2D4819021809D4C009E6E9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2D4819521809D4C009E6E9F /* VideoCatalogueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoCatalogueUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D4819921809D4C009E6E9F /* VideoCatalogueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCatalogueUITests.swift; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 		A2D481F321820F25009E6E9F /* VideoCatalogueAPIResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = VideoCatalogueAPIResponse.json; sourceTree = "<group>"; };
 		A2D481F621820F55009E6E9F /* VideoCatalogueAPIResponse_empty.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = VideoCatalogueAPIResponse_empty.json; sourceTree = "<group>"; };
 		A2D481F92182D2CF009E6E9F /* VideoCatalogueAPIResponse_incorrect.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = VideoCatalogueAPIResponse_incorrect.json; sourceTree = "<group>"; };
+		A2D481FC218333D7009E6E9F /* CatalogueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewModel.swift; sourceTree = "<group>"; };
+		A2D481FF21833455009E6E9F /* VideoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailViewModel.swift; sourceTree = "<group>"; };
 		DD48BA930081C11D658F723F /* Pods-VideoCatalogue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoCatalogue.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoCatalogue/Pods-VideoCatalogue.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,7 +181,7 @@
 		A2D4818D21809D4C009E6E9F /* VideoCatalogueTests */ = {
 			isa = PBXGroup;
 			children = (
-				A2D4818E21809D4C009E6E9F /* VideoCatalogueTests.swift */,
+				A2D4818E21809D4C009E6E9F /* ApiClientAndModelTests.swift */,
 				A2D4819021809D4C009E6E9F /* Info.plist */,
 				A2D481F321820F25009E6E9F /* VideoCatalogueAPIResponse.json */,
 				A2D481F621820F55009E6E9F /* VideoCatalogueAPIResponse_empty.json */,
@@ -220,6 +226,8 @@
 		A2D481AA218172AC009E6E9F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A2D481FC218333D7009E6E9F /* CatalogueViewModel.swift */,
+				A2D481FF21833455009E6E9F /* VideoDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -459,6 +467,8 @@
 				A2D4817921809D4A009E6E9F /* ViewController.swift in Sources */,
 				A2D481EE2181F6FF009E6E9F /* ApiService.swift in Sources */,
 				A2D4817F21809D4A009E6E9F /* VideoCatalogue.xcdatamodeld in Sources */,
+				A2D4820021833455009E6E9F /* VideoDetailViewModel.swift in Sources */,
+				A2D481FD218333D7009E6E9F /* CatalogueViewModel.swift in Sources */,
 				A2D4817721809D4A009E6E9F /* AppDelegate.swift in Sources */,
 				A2D481EB2181E1C5009E6E9F /* catalogue.swift in Sources */,
 				A2D481F121820891009E6E9F /* ApiClient.swift in Sources */,
@@ -469,10 +479,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2D4818F21809D4C009E6E9F /* VideoCatalogueTests.swift in Sources */,
+				A2D4818F21809D4C009E6E9F /* ApiClientAndModelTests.swift in Sources */,
 				A2D481EC2181E1C5009E6E9F /* catalogue.swift in Sources */,
 				A2D481EF2181F6FF009E6E9F /* ApiService.swift in Sources */,
+				A2D4820121833455009E6E9F /* VideoDetailViewModel.swift in Sources */,
 				A2D481F221820891009E6E9F /* ApiClient.swift in Sources */,
+				A2D481FE218333D7009E6E9F /* CatalogueViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
