@@ -11,8 +11,9 @@
 		87406CB08524A1EF7BD86428 /* Pods_VideoCatalogueTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1FDF3CB10BD18847986136 /* Pods_VideoCatalogueTests.framework */; };
 		A25491B221847F5A00061CA2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25491B121847F5A00061CA2 /* Item.swift */; };
 		A25491B42184887B00061CA2 /* CatalogueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25491B32184887B00061CA2 /* CatalogueTableViewController.swift */; };
-		A25491B621848DFA00061CA2 /* CarouselTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25491B521848DFA00061CA2 /* CarouselTableViewCell.swift */; };
+		A25491B621848DFA00061CA2 /* CatalogueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25491B521848DFA00061CA2 /* CatalogueTableViewCell.swift */; };
 		A25491B7218494CA00061CA2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25491B121847F5A00061CA2 /* Item.swift */; };
+		A25491BB2184BA1400061CA2 /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25491BA2184BA1400061CA2 /* CarouselCollectionViewCell.swift */; };
 		A2D4817721809D4A009E6E9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D4817621809D4A009E6E9F /* AppDelegate.swift */; };
 		A2D4817C21809D4A009E6E9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2D4817A21809D4A009E6E9F /* Main.storyboard */; };
 		A2D4817F21809D4A009E6E9F /* VideoCatalogue.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2D4817D21809D4A009E6E9F /* VideoCatalogue.xcdatamodeld */; };
@@ -67,7 +68,8 @@
 		5DAB5D72DFD4661CD8427C02 /* Pods-VideoCatalogueUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoCatalogueUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoCatalogueUITests/Pods-VideoCatalogueUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A25491B121847F5A00061CA2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		A25491B32184887B00061CA2 /* CatalogueTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueTableViewController.swift; sourceTree = "<group>"; };
-		A25491B521848DFA00061CA2 /* CarouselTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTableViewCell.swift; sourceTree = "<group>"; };
+		A25491B521848DFA00061CA2 /* CatalogueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueTableViewCell.swift; sourceTree = "<group>"; };
+		A25491BA2184BA1400061CA2 /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewCell.swift; sourceTree = "<group>"; };
 		A2D4817321809D4A009E6E9F /* VideoCatalogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoCatalogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D4817621809D4A009E6E9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2D4817B21809D4A009E6E9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -207,7 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				A25491B32184887B00061CA2 /* CatalogueTableViewController.swift */,
-				A25491B521848DFA00061CA2 /* CarouselTableViewCell.swift */,
+				A25491B521848DFA00061CA2 /* CatalogueTableViewCell.swift */,
+				A25491BA2184BA1400061CA2 /* CarouselCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -474,8 +477,9 @@
 				A25491B221847F5A00061CA2 /* Item.swift in Sources */,
 				A2D481EE2181F6FF009E6E9F /* ApiService.swift in Sources */,
 				A2D4817F21809D4A009E6E9F /* VideoCatalogue.xcdatamodeld in Sources */,
-				A25491B621848DFA00061CA2 /* CarouselTableViewCell.swift in Sources */,
+				A25491B621848DFA00061CA2 /* CatalogueTableViewCell.swift in Sources */,
 				A2D4820021833455009E6E9F /* VideoDetailViewModel.swift in Sources */,
+				A25491BB2184BA1400061CA2 /* CarouselCollectionViewCell.swift in Sources */,
 				A25491B42184887B00061CA2 /* CatalogueTableViewController.swift in Sources */,
 				A2D481FD218333D7009E6E9F /* CatalogueViewModel.swift in Sources */,
 				A2D4817721809D4A009E6E9F /* AppDelegate.swift in Sources */,

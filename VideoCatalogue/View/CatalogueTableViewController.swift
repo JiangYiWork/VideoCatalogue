@@ -106,28 +106,33 @@ extension CatalogueTableViewController: UITableViewDelegate, UITableViewDataSour
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CatalogueCell", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CatalogueCell", for: indexPath) as! CatalogueTableViewCell
+        cell.catalogue = viewModel.catalogue[indexPath.section]
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 143
+        let isFeatures = viewModel.catalogue[indexPath.section].category?.caseInsensitiveCompare("Features") == .orderedSame
+        return isFeatures ? 143 : 205
     }
 
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let headerView = view as? UITableViewHeaderFooterView {
+            if headerView.textLabel?.text?.caseInsensitiveCompare("TV Shows") == .orderedSame {
+                headerView.textLabel?.text? = "TV Shows"
+            } else {
+                headerView.textLabel?.text? = headerView.textLabel?.text?.capitalized ?? ""
+            }
+            headerView.textLabel?.font = headerView.textLabel?.font.withSize(20)
+        }
+    }
 
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+
     
 
 }

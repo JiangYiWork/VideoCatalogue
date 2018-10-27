@@ -1,5 +1,5 @@
 //
-//  CarouselTableViewCell.swift
+//  CatalogueTableViewCell.swift
 //  VideoCatalogue
 //
 //  Created by Yi JIANG on 27/10/18.
@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import Kingfisher
 
-class CarouselTableViewCell: UITableViewCell {
+class CatalogueTableViewCell: UITableViewCell {
+    
+    var catalogue: Catalogue?
+    var isFeatures: Bool{
+        get {
+            return catalogue?.category?.caseInsensitiveCompare("Features") == .orderedSame
+        }
+    }
     
     @IBOutlet weak var carouselView: UICollectionView!
     
@@ -26,27 +34,34 @@ class CarouselTableViewCell: UITableViewCell {
 
 }
 
-extension CarouselTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+extension CatalogueTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return catalogue?.items?.count ?? 0
     }
     //cellForItemAt indexPath
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarouselCell", for: indexPath)
-        cell.backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarouselCell", for: indexPath) as! CarouselCollectionViewCell
+        if let item = catalogue?.items?[indexPath.row],
+        let posterUrlString = isFeatures ? item.images?.landscape : item.images?.portrait
+        {
+            cell.itemTitleLabel.text = item.title ?? "No title"
+            let posterUrl = URL(string: posterUrlString)
+            cell.itemImageView.kf.setImage(with: posterUrl, placeholder: Image(named: "placeholder"), options: nil, progressBlock: nil, completionHandler: nil)
+        }
         return cell
     }
     
     
     //MARK:UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 143)
+        return isFeatures ? CGSize(width: 200, height: 143) : CGSize(width: 117, height: 205)
+        
     }
     
     //    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets{
@@ -60,6 +75,10 @@ extension CarouselTableViewCell: UICollectionViewDataSource, UICollectionViewDel
     //    //footer高度
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         return CGSize.init(width: 5, height: collectionView.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
     }
     
 }
