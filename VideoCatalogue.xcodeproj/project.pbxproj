@@ -9,16 +9,19 @@
 /* Begin PBXBuildFile section */
 		0B1CF09901B98BC384D8F57D /* Pods_VideoCatalogue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5971951102DD3C57E30E3EE4 /* Pods_VideoCatalogue.framework */; };
 		87406CB08524A1EF7BD86428 /* Pods_VideoCatalogueTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1FDF3CB10BD18847986136 /* Pods_VideoCatalogueTests.framework */; };
+		A25491B221847F5A00061CA2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25491B121847F5A00061CA2 /* Item.swift */; };
+		A25491B42184887B00061CA2 /* CatalogueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25491B32184887B00061CA2 /* CatalogueTableViewController.swift */; };
+		A25491B621848DFA00061CA2 /* CarouselTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25491B521848DFA00061CA2 /* CarouselTableViewCell.swift */; };
+		A25491B7218494CA00061CA2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25491B121847F5A00061CA2 /* Item.swift */; };
 		A2D4817721809D4A009E6E9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D4817621809D4A009E6E9F /* AppDelegate.swift */; };
-		A2D4817921809D4A009E6E9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D4817821809D4A009E6E9F /* ViewController.swift */; };
 		A2D4817C21809D4A009E6E9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2D4817A21809D4A009E6E9F /* Main.storyboard */; };
 		A2D4817F21809D4A009E6E9F /* VideoCatalogue.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2D4817D21809D4A009E6E9F /* VideoCatalogue.xcdatamodeld */; };
 		A2D4818121809D4C009E6E9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2D4818021809D4C009E6E9F /* Assets.xcassets */; };
 		A2D4818421809D4C009E6E9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2D4818221809D4C009E6E9F /* LaunchScreen.storyboard */; };
 		A2D4818F21809D4C009E6E9F /* ApiClientAndModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D4818E21809D4C009E6E9F /* ApiClientAndModelTests.swift */; };
 		A2D4819A21809D4C009E6E9F /* VideoCatalogueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D4819921809D4C009E6E9F /* VideoCatalogueUITests.swift */; };
-		A2D481EB2181E1C5009E6E9F /* catalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481EA2181E1C5009E6E9F /* catalogue.swift */; };
-		A2D481EC2181E1C5009E6E9F /* catalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481EA2181E1C5009E6E9F /* catalogue.swift */; };
+		A2D481EB2181E1C5009E6E9F /* Catalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481EA2181E1C5009E6E9F /* Catalogue.swift */; };
+		A2D481EC2181E1C5009E6E9F /* Catalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481EA2181E1C5009E6E9F /* Catalogue.swift */; };
 		A2D481EE2181F6FF009E6E9F /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481ED2181F6FF009E6E9F /* ApiService.swift */; };
 		A2D481EF2181F6FF009E6E9F /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481ED2181F6FF009E6E9F /* ApiService.swift */; };
 		A2D481F121820891009E6E9F /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481F021820891009E6E9F /* ApiClient.swift */; };
@@ -62,9 +65,11 @@
 		5971951102DD3C57E30E3EE4 /* Pods_VideoCatalogue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoCatalogue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DA6851BD433CD0389060118 /* Pods-VideoCatalogueTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoCatalogueTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoCatalogueTests/Pods-VideoCatalogueTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DAB5D72DFD4661CD8427C02 /* Pods-VideoCatalogueUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoCatalogueUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoCatalogueUITests/Pods-VideoCatalogueUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A25491B121847F5A00061CA2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		A25491B32184887B00061CA2 /* CatalogueTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueTableViewController.swift; sourceTree = "<group>"; };
+		A25491B521848DFA00061CA2 /* CarouselTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTableViewCell.swift; sourceTree = "<group>"; };
 		A2D4817321809D4A009E6E9F /* VideoCatalogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoCatalogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D4817621809D4A009E6E9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A2D4817821809D4A009E6E9F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A2D4817B21809D4A009E6E9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A2D4817E21809D4A009E6E9F /* VideoCatalogue.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VideoCatalogue.xcdatamodel; sourceTree = "<group>"; };
 		A2D4818021809D4C009E6E9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,7 +81,7 @@
 		A2D4819521809D4C009E6E9F /* VideoCatalogueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoCatalogueUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D4819921809D4C009E6E9F /* VideoCatalogueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCatalogueUITests.swift; sourceTree = "<group>"; };
 		A2D4819B21809D4C009E6E9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A2D481EA2181E1C5009E6E9F /* catalogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = catalogue.swift; sourceTree = "<group>"; };
+		A2D481EA2181E1C5009E6E9F /* Catalogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalogue.swift; sourceTree = "<group>"; };
 		A2D481ED2181F6FF009E6E9F /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		A2D481F021820891009E6E9F /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		A2D481F321820F25009E6E9F /* VideoCatalogueAPIResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = VideoCatalogueAPIResponse.json; sourceTree = "<group>"; };
@@ -164,12 +169,11 @@
 			isa = PBXGroup;
 			children = (
 				A2D4817621809D4A009E6E9F /* AppDelegate.swift */,
+				A2D4817A21809D4A009E6E9F /* Main.storyboard */,
 				A2D481A721817243009E6E9F /* View */,
 				A2D481AA218172AC009E6E9F /* ViewModel */,
 				A2D481A821817250009E6E9F /* Model */,
 				A2D481A921817287009E6E9F /* ServerManager */,
-				A2D4817821809D4A009E6E9F /* ViewController.swift */,
-				A2D4817A21809D4A009E6E9F /* Main.storyboard */,
 				A2D4818021809D4C009E6E9F /* Assets.xcassets */,
 				A2D4818221809D4C009E6E9F /* LaunchScreen.storyboard */,
 				A2D4818521809D4C009E6E9F /* Info.plist */,
@@ -202,6 +206,8 @@
 		A2D481A721817243009E6E9F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A25491B32184887B00061CA2 /* CatalogueTableViewController.swift */,
+				A25491B521848DFA00061CA2 /* CarouselTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -209,7 +215,8 @@
 		A2D481A821817250009E6E9F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A2D481EA2181E1C5009E6E9F /* catalogue.swift */,
+				A2D481EA2181E1C5009E6E9F /* Catalogue.swift */,
+				A25491B121847F5A00061CA2 /* Item.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -464,13 +471,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2D4817921809D4A009E6E9F /* ViewController.swift in Sources */,
+				A25491B221847F5A00061CA2 /* Item.swift in Sources */,
 				A2D481EE2181F6FF009E6E9F /* ApiService.swift in Sources */,
 				A2D4817F21809D4A009E6E9F /* VideoCatalogue.xcdatamodeld in Sources */,
+				A25491B621848DFA00061CA2 /* CarouselTableViewCell.swift in Sources */,
 				A2D4820021833455009E6E9F /* VideoDetailViewModel.swift in Sources */,
+				A25491B42184887B00061CA2 /* CatalogueTableViewController.swift in Sources */,
 				A2D481FD218333D7009E6E9F /* CatalogueViewModel.swift in Sources */,
 				A2D4817721809D4A009E6E9F /* AppDelegate.swift in Sources */,
-				A2D481EB2181E1C5009E6E9F /* catalogue.swift in Sources */,
+				A2D481EB2181E1C5009E6E9F /* Catalogue.swift in Sources */,
 				A2D481F121820891009E6E9F /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,9 +489,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2D4818F21809D4C009E6E9F /* ApiClientAndModelTests.swift in Sources */,
-				A2D481EC2181E1C5009E6E9F /* catalogue.swift in Sources */,
+				A2D481EC2181E1C5009E6E9F /* Catalogue.swift in Sources */,
 				A2D481EF2181F6FF009E6E9F /* ApiService.swift in Sources */,
 				A2D4820121833455009E6E9F /* VideoDetailViewModel.swift in Sources */,
+				A25491B7218494CA00061CA2 /* Item.swift in Sources */,
 				A2D481F221820891009E6E9F /* ApiClient.swift in Sources */,
 				A2D481FE218333D7009E6E9F /* CatalogueViewModel.swift in Sources */,
 			);

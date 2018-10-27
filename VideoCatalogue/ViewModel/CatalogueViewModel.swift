@@ -12,15 +12,21 @@ class CatalogueViewModel {
     
     let apiClient: ApiClient
     
-    private var catalogue = [Category]() {
+    var catalogue = [Catalogue]() {
         didSet {
-            self.didUpdateCatalogue?()
+            didUpdateCatalogue?()
         }
     }
     
-    private var isLoading = false {
+    var isLoading = false {
         didSet {
-            self.updateLoadingStatus?()
+            updateLoadingStatus?()
+        }
+    }
+    
+    var alertMessage: String? {
+        didSet {
+            showAlert?()
         }
     }
     
@@ -30,8 +36,7 @@ class CatalogueViewModel {
     }
     
     // MARK: - Events
-    var didError: ((RequestError) -> Void)?
-    var isUpdatingModel: (() -> Void)?
+    var hasError: ((RequestError) -> Void)?
     var didUpdateCatalogue: (() -> Void)?
     var updateLoadingStatus: (() -> Void)?
     var showAlert: (() -> Void)?
@@ -40,5 +45,51 @@ class CatalogueViewModel {
         self.apiClient = apiClient
     }
     
-    func get
+    func fetchCatalogue() {
+        isLoading = true
+        apiClient.networkRequest(.videoCatalogue) { [weak self] (data, error) in
+            guard let strongSelf = self else { return }
+            strongSelf.isLoading = false
+            if let error = error {
+                strongSelf.hasError?(error)
+                strongSelf.alertMessage = error.errorDescription
+                return
+            }
+            if let data = data {
+                do {
+                    let decoder = JSONDecoder()
+                    strongSelf.catalogue = try decoder.decode([Catalogue].self, from: data)
+                } catch {
+                    strongSelf.alertMessage = "Can't decode API response"
+                }
+            }
+            
+        }
+    }
+    
+    func getNumberOfCells(in section: Int) -> Int {
+        guard catalogue.count > 0,
+            section < catalogue.count,
+            let items = catalogue[section].items
+        else { return 0 }
+        return items.count
+    }
+    
+    func getItem(in section: Int, at index: Int) -> Item? {
+        guard catalogue.count > 0,
+            section < catalogue.count,
+            let items = catalogue[section].items,
+            items.count > 0,
+            index < items.count
+        else { return nil }
+        return items[index]
+    }
+    
+    func getCatalogueTitle(for section: Int) -> String? {
+        guard catalogue.count > 0,
+            section < catalogue.count
+            else { return nil }
+        return catalogue[section].category
+    }
+    
 }

@@ -22,21 +22,24 @@ class ApiClientAndModelTests: XCTestCase {
 
     func testVideoCatalogueApiService() {
         let apiClient = ApiClient()
-        apiClient.networkRequest(.videoCatalogue
-            , completionHandler: { (data, error) in
-                guard let data = data else {
-                    print("Error: \(error.debugDescription)")
-                    return
-                }
-                let decoder = JSONDecoder()
-                do {
-                    let model = try decoder.decode([Catalogue].self, from: data)
-                    XCTAssertTrue(model.count > 0)
-                    dump(model)
-                } catch {
-                    XCTFail()
-                }
-        })
+        apiClient.networkRequest(.videoCatalogue) { (data, error) in
+            guard error != nil else {
+                print("Error: \(error.debugDescription)")
+                return
+            }
+            guard let data = data else {
+                XCTFail()
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                let model = try decoder.decode([Catalogue].self, from: data)
+                XCTAssertTrue(model.count > 0)
+                dump(model)
+            } catch {
+                XCTFail()
+            }
+        }
     }
     
     func testVideoCatalogueModelWithCorrectMockData() {
@@ -44,33 +47,35 @@ class ApiClientAndModelTests: XCTestCase {
         apiClient.jsonFileName = .vcResponse_correct
         apiClient.networkRequest(.videoCatalogue) { (data, error) in
             XCTAssertTrue(data != nil)
-            if let data = data {
-                let decoder = JSONDecoder()
-                let model = try! decoder.decode([Catalogue].self, from: data)
-                XCTAssertTrue(model.count > 0)
-                dump(model)
+            if let error = error {
+                if let data = data {
+                    let decoder = JSONDecoder()
+                    let model = try! decoder.decode([Catalogue].self, from: data)
+                    XCTAssertTrue(model.count > 0)
+                    dump(model)
+                } else {
+                        print("Error: \(error)")
+                    }
             } else {
-                if let error = error {
-                    print("Error: \(error)")
-                }
                 XCTAssert(error == nil, "The Mock Data should be all right. But not here!")
             }
         }
-        
     }
     
     func testVideoCatalogueModelWithEmptyMockData() {
         let apiClient = MockApiClient()
         apiClient.jsonFileName = .vcResponse_empty
         apiClient.networkRequest(.videoCatalogue) { (data, error) in
-            if let data = data {
-                let decoder = JSONDecoder()
-                let model = try! decoder.decode([Catalogue].self, from: data)
-                XCTAssertTrue(model.count == 0)
-                dump(model)
+            if let error = error {
+                print("Error: \(error)")
             } else {
-                if let error = error {
-                    print("Error: \(error)")
+                if let data = data {
+                    let decoder = JSONDecoder()
+                    let model = try! decoder.decode([Catalogue].self, from: data)
+                    XCTAssertTrue(model.count == 0)
+                    dump(model)
+                } else {
+                    XCTFail()
                 }
             }
         }
