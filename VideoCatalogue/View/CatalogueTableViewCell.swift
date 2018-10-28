@@ -28,12 +28,6 @@ class CatalogueTableViewCell: UITableViewCell {
         carouselView.dataSource = self
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
 
 extension CatalogueTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
@@ -45,7 +39,6 @@ extension CatalogueTableViewCell: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return catalogue?.items?.count ?? 0
     }
-    //cellForItemAt indexPath
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarouselCell", for: indexPath) as! CarouselCollectionViewCell
@@ -63,18 +56,12 @@ extension CatalogueTableViewCell: UICollectionViewDataSource, UICollectionViewDe
     //MARK:UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return isFeatures ? CGSize(width: 200, height: 143) : CGSize(width: 117, height: 205)
-        
     }
     
-    //    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets{
-    //        return UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
-    //    }
-    
-    //    header高度
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize.init(width: 5, height: collectionView.frame.height)
     }
-    //    //footer高度
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         return CGSize.init(width: 5, height: collectionView.frame.height)
     }

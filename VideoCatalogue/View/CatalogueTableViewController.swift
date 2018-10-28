@@ -41,14 +41,8 @@ class CatalogueTableViewController: UIViewController {
         tableView.addSubview(refreshControl)
     }
     
-    deinit {
-//        NotificationCenter.default.removeObserver(self)
-    }
-    
-    // MARK: - bind viewModel
-    
+    // MARK: - Events and Data binding
     private func initViewModel() {
-        //Events and Data binding
         viewModel.showAlert = { () in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self,
@@ -94,7 +88,6 @@ class CatalogueTableViewController: UIViewController {
     }
     
     // MARK: - private func
-    
     func showAlert( _ message: String ) {
         let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
         alert.addAction( UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -110,8 +103,7 @@ class CatalogueTableViewController: UIViewController {
 // MARK: - UITableViewDelegate
 
 extension CatalogueTableViewController: UITableViewDelegate, UITableViewDataSource {
-        
-        
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections
     }
@@ -124,7 +116,6 @@ extension CatalogueTableViewController: UITableViewDelegate, UITableViewDataSour
         return 1
     }
 
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CatalogueCell", for: indexPath) as! CatalogueTableViewCell
         cell.delegate = self
@@ -152,6 +143,7 @@ extension CatalogueTableViewController: UITableViewDelegate, UITableViewDataSour
 }
 
 // MARK: - CatalogueTabelViewCellDelegate
+
 extension CatalogueTableViewController: CatalogueTableViewCellDelegate {
     
     func selectedAsset(_ item: Item) {

@@ -12,4 +12,5 @@ class CarouselCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var itemImageView: UIImageView!
     @IBOutlet var itemTitleLabel: UILabel!
+    
 }

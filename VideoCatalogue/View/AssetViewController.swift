@@ -17,10 +17,6 @@ class AssetViewController: UIViewController {
     @IBOutlet var assetDescriptionLabel: UILabel!
     @IBOutlet var assetImageView: UIImageView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let assetItem = assetItem else { return }
