@@ -17,11 +17,19 @@ class CatalogueTableViewController: UIViewController {
         return CatalogueViewModel()
     }()
     private let refreshControl = UIRefreshControl()
+    private var selectedItem: Item?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
         initViewModel()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showAssetDetails" {
+            let assetViewController = segue.destination as! AssetViewController
+            assetViewController.assetItem = selectedItem
+        }
     }
     
     private func initView() {
@@ -33,14 +41,20 @@ class CatalogueTableViewController: UIViewController {
         tableView.addSubview(refreshControl)
     }
     
+    deinit {
+//        NotificationCenter.default.removeObserver(self)
+    }
+    
+    // MARK: - bind viewModel
+    
     private func initViewModel() {
         //Events and Data binding
-        viewModel.showAlert = { [weak self] () in
-            DispatchQueue.main.async {
-                guard let strongSelf = self,
-                    let message = strongSelf.viewModel.alertMessage
+        viewModel.showAlert = { () in
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self,
+                    let message = self.viewModel.alertMessage
                     else { return }
-                strongSelf.showAlert(message)
+                self.showAlert(message)
             }
         }
         
@@ -51,10 +65,11 @@ class CatalogueTableViewController: UIViewController {
         }
         
         viewModel.didUpdateCatalogue = { [weak self] () in
+            guard let self = self else { return }
             DispatchQueue.main.async {
-                self?.viewModel.arrangeCatalogues()
-                self?.tableView.reloadData()
-                self?.refreshControl.endRefreshing()
+                self.viewModel.arrangeCatalogues()
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
             }
         }
         
@@ -78,6 +93,8 @@ class CatalogueTableViewController: UIViewController {
         viewModel.fetchCatalogue()
     }
     
+    // MARK: - private func
+    
     func showAlert( _ message: String ) {
         let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
         alert.addAction( UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -89,6 +106,8 @@ class CatalogueTableViewController: UIViewController {
     }
     
 }
+
+// MARK: - UITableViewDelegate
 
 extension CatalogueTableViewController: UITableViewDelegate, UITableViewDataSource {
         
@@ -108,6 +127,7 @@ extension CatalogueTableViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CatalogueCell", for: indexPath) as! CatalogueTableViewCell
+        cell.delegate = self
         cell.catalogue = viewModel.catalogues[indexPath.section]
         return cell
     }
@@ -128,12 +148,15 @@ extension CatalogueTableViewController: UITableViewDelegate, UITableViewDataSour
             headerView.textLabel?.font = headerView.textLabel?.font.withSize(20)
         }
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-
     
+}
 
+// MARK: - CatalogueTabelViewCellDelegate
+extension CatalogueTableViewController: CatalogueTableViewCellDelegate {
+    
+    func selectedAsset(_ item: Item) {
+        selectedItem = item
+        performSegue(withIdentifier:"showAssetDetails", sender: self)
+    }
+    
 }

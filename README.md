@@ -13,7 +13,7 @@ After install pods, please use Xcode to open the ```VideoCatalogue.xcworkspace``
 
 ### Architeture
 
-MVVM without RxSwift
+MVVM without RxSwift. This projest doesn't require many user interactives, thus, we only have simple data binding and events binding.
 
 ### Model
 I use Codable Struct to build the data model. The response data is an Array of catalogue.
@@ -33,9 +33,19 @@ I would love to hear your feedback. File an issue,  send me an email: [jiang.yi@
 
 ### Q&A
 
-1. Why use MVVM design pattern?
-2. Why use MVVM without reactive?
-3. Why use Kingfisher pod?
+1. Why use MVVM design pattern?  
+	The MVC design pattern with Storyboard is not friendly for unit test. In order to do unit test, we need create the ViewController's instance in unit test class. The one of the MVVM's benefits is unit test friendly. 
+
+2. Why use MVVM without reactive?  
+	RxSwift is very popular now. Most of iOS MVVM projects adapted RxSwift. I know how to use it. I might create another feature branch to intrudce RxSwift into project in the future. The reason I didn't pick RxSwift with MVVM architecture is I want to try a new way to achieve MVVM.
+	 
+3. Why use Kingfisher pod?  
+	Kingfisher is a lightweight, pure-Swift library for downloading and caching images from the web. It takes care of asynchronous image downloading and caching. I can write this kind feature by my self. However, to use Kingfisher will dramatically reduce the development cost for this project. 
+
+### TODO:
+1. Move all hard coded value and String into enum or struct.
+2. Improve show big image animation.
+3. More unit test coverage.
 
 Enjoy!  
 Yi Jiang

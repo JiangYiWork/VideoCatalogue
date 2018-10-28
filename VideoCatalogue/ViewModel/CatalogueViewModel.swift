@@ -48,19 +48,19 @@ class CatalogueViewModel {
     func fetchCatalogue() {
         isLoading = true
         apiClient.networkRequest(.videoCatalogue) { [weak self] (data, error) in
-            guard let strongSelf = self else { return }
-            strongSelf.isLoading = false
+            guard let self = self else { return }
+            self.isLoading = false
             if let error = error {
-                strongSelf.hasError?(error)
-                strongSelf.alertMessage = error.errorDescription
+                self.hasError?(error)
+                self.alertMessage = error.errorDescription
                 return
             }
             if let data = data {
                 do {
                     let decoder = JSONDecoder()
-                    strongSelf.catalogues = try decoder.decode([Catalogue].self, from: data)
+                    self.catalogues = try decoder.decode([Catalogue].self, from: data)
                 } catch {
-                    strongSelf.alertMessage = "Can't decode API response"
+                    self.alertMessage = "Can't decode API response"
                 }
             }
             
@@ -93,22 +93,12 @@ class CatalogueViewModel {
     }
     
     func arrangeCatalogues() {
-        if catalogues.count == 3  {
-            var newCatalogues = [Catalogue?]()
-            newCatalogues.append(nil)
-            newCatalogues.append(nil)
-            newCatalogues.append(nil)
-            for catalogue in catalogues {
-                if catalogue.category?.caseInsensitiveCompare("Features") == .orderedSame {
-                    newCatalogues[0] = catalogue
-                } else if catalogue.category?.caseInsensitiveCompare("Movies") == .orderedSame {
-                    newCatalogues[1] = catalogue
-                } else if catalogue.category?.caseInsensitiveCompare("TV Shows") == .orderedSame {
-                    newCatalogues[2] = catalogue
-                }
-            }
-            catalogues = newCatalogues as! [Catalogue]
-        }
+        let catalogueDic = Dictionary(grouping: catalogues, by: { $0.category })
+        var newCatalogues = [Catalogue?]()
+        newCatalogues.append(catalogueDic["Features"]?[0])
+        newCatalogues.append(catalogueDic["Movies"]?[0])
+        newCatalogues.append(catalogueDic["TV Shows"]?[0])
+        catalogues = newCatalogues.compactMap{ $0 }
     }
 }
 

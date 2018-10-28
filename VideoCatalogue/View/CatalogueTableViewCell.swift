@@ -12,6 +12,8 @@ import Kingfisher
 class CatalogueTableViewCell: UITableViewCell {
     
     var catalogue: Catalogue?
+    var delegate: CatalogueTableViewCellDelegate?
+    
     var isFeatures: Bool{
         get {
             return catalogue?.category?.caseInsensitiveCompare("Features") == .orderedSame
@@ -78,8 +80,14 @@ extension CatalogueTableViewCell: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+        if let item = catalogue?.items?[indexPath.row] {
+            delegate?.selectedAsset(item)
+        }
     }
     
+}
+
+protocol CatalogueTableViewCellDelegate {
+    func selectedAsset(_ item: Item)
 }
 

@@ -14,6 +14,7 @@
 		A25491B621848DFA00061CA2 /* CatalogueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25491B521848DFA00061CA2 /* CatalogueTableViewCell.swift */; };
 		A25491B7218494CA00061CA2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25491B121847F5A00061CA2 /* Item.swift */; };
 		A25491BB2184BA1400061CA2 /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25491BA2184BA1400061CA2 /* CarouselCollectionViewCell.swift */; };
+		A25491BD2185E1C800061CA2 /* AssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25491BC2185E1C800061CA2 /* AssetViewController.swift */; };
 		A2D4817721809D4A009E6E9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D4817621809D4A009E6E9F /* AppDelegate.swift */; };
 		A2D4817C21809D4A009E6E9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2D4817A21809D4A009E6E9F /* Main.storyboard */; };
 		A2D4817F21809D4A009E6E9F /* VideoCatalogue.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2D4817D21809D4A009E6E9F /* VideoCatalogue.xcdatamodeld */; };
@@ -35,8 +36,6 @@
 		A2D481FB2182D2CF009E6E9F /* VideoCatalogueAPIResponse_incorrect.json in Resources */ = {isa = PBXBuildFile; fileRef = A2D481F92182D2CF009E6E9F /* VideoCatalogueAPIResponse_incorrect.json */; };
 		A2D481FD218333D7009E6E9F /* CatalogueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481FC218333D7009E6E9F /* CatalogueViewModel.swift */; };
 		A2D481FE218333D7009E6E9F /* CatalogueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481FC218333D7009E6E9F /* CatalogueViewModel.swift */; };
-		A2D4820021833455009E6E9F /* VideoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481FF21833455009E6E9F /* VideoDetailViewModel.swift */; };
-		A2D4820121833455009E6E9F /* VideoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481FF21833455009E6E9F /* VideoDetailViewModel.swift */; };
 		E5222FC93312CC65E155090F /* Pods_VideoCatalogueUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2BFD9173A7E0CFD91A2ABB /* Pods_VideoCatalogueUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +69,7 @@
 		A25491B32184887B00061CA2 /* CatalogueTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueTableViewController.swift; sourceTree = "<group>"; };
 		A25491B521848DFA00061CA2 /* CatalogueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueTableViewCell.swift; sourceTree = "<group>"; };
 		A25491BA2184BA1400061CA2 /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewCell.swift; sourceTree = "<group>"; };
+		A25491BC2185E1C800061CA2 /* AssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewController.swift; sourceTree = "<group>"; };
 		A2D4817321809D4A009E6E9F /* VideoCatalogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoCatalogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D4817621809D4A009E6E9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2D4817B21809D4A009E6E9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,7 +90,6 @@
 		A2D481F621820F55009E6E9F /* VideoCatalogueAPIResponse_empty.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = VideoCatalogueAPIResponse_empty.json; sourceTree = "<group>"; };
 		A2D481F92182D2CF009E6E9F /* VideoCatalogueAPIResponse_incorrect.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = VideoCatalogueAPIResponse_incorrect.json; sourceTree = "<group>"; };
 		A2D481FC218333D7009E6E9F /* CatalogueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewModel.swift; sourceTree = "<group>"; };
-		A2D481FF21833455009E6E9F /* VideoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailViewModel.swift; sourceTree = "<group>"; };
 		DD48BA930081C11D658F723F /* Pods-VideoCatalogue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoCatalogue.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoCatalogue/Pods-VideoCatalogue.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,6 +210,7 @@
 				A25491B32184887B00061CA2 /* CatalogueTableViewController.swift */,
 				A25491B521848DFA00061CA2 /* CatalogueTableViewCell.swift */,
 				A25491BA2184BA1400061CA2 /* CarouselCollectionViewCell.swift */,
+				A25491BC2185E1C800061CA2 /* AssetViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -237,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				A2D481FC218333D7009E6E9F /* CatalogueViewModel.swift */,
-				A2D481FF21833455009E6E9F /* VideoDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -478,8 +477,8 @@
 				A2D481EE2181F6FF009E6E9F /* ApiService.swift in Sources */,
 				A2D4817F21809D4A009E6E9F /* VideoCatalogue.xcdatamodeld in Sources */,
 				A25491B621848DFA00061CA2 /* CatalogueTableViewCell.swift in Sources */,
-				A2D4820021833455009E6E9F /* VideoDetailViewModel.swift in Sources */,
 				A25491BB2184BA1400061CA2 /* CarouselCollectionViewCell.swift in Sources */,
+				A25491BD2185E1C800061CA2 /* AssetViewController.swift in Sources */,
 				A25491B42184887B00061CA2 /* CatalogueTableViewController.swift in Sources */,
 				A2D481FD218333D7009E6E9F /* CatalogueViewModel.swift in Sources */,
 				A2D4817721809D4A009E6E9F /* AppDelegate.swift in Sources */,
@@ -495,7 +494,6 @@
 				A2D4818F21809D4C009E6E9F /* ApiClientAndModelTests.swift in Sources */,
 				A2D481EC2181E1C5009E6E9F /* Catalogue.swift in Sources */,
 				A2D481EF2181F6FF009E6E9F /* ApiService.swift in Sources */,
-				A2D4820121833455009E6E9F /* VideoDetailViewModel.swift in Sources */,
 				A25491B7218494CA00061CA2 /* Item.swift in Sources */,
 				A2D481F221820891009E6E9F /* ApiClient.swift in Sources */,
 				A2D481FE218333D7009E6E9F /* CatalogueViewModel.swift in Sources */,
