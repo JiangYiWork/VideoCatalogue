@@ -18,18 +18,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="r9S-hs-6jU">
-                                <rect key="frame" x="0.0" y="10" width="1280" height="512"/>
+                                <rect key="frame" x="0.0" y="10" width="1024" height="768"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CatalogueCell" rowHeight="150" id="dMH-j6-HIb" customClass="CatalogueTableViewCell" customModule="VideoCatalogue" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="1280" height="150"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="1024" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dMH-j6-HIb" id="UMI-T2-QYj">
-                                            <rect key="frame" x="0.0" y="0.0" width="1280" height="149.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3Ey-ST-zr5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="768" height="149.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="1280" height="149.5"/>
                                                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Abc-Dl-jiT">
                                                         <size key="itemSize" width="50" height="50"/>
@@ -168,6 +168,7 @@
                             <constraint firstItem="SJC-sU-OS8" firstAttribute="top" secondItem="Jxh-25-uwo" secondAttribute="bottom" constant="8" id="bcL-CA-z2T"/>
                             <constraint firstItem="WAd-OX-rsR" firstAttribute="trailing" secondItem="W2S-mT-zXM" secondAttribute="trailing" constant="20" id="bot-D6-n3N"/>
                             <constraint firstItem="W2S-mT-zXM" firstAttribute="centerY" secondItem="WAd-OX-rsR" secondAttribute="centerY" id="cb0-SI-FX4"/>
+                            <constraint firstItem="WAd-OX-rsR" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Jxh-25-uwo" secondAttribute="trailing" constant="20" id="ev3-sZ-g93"/>
                             <constraint firstItem="W2S-mT-zXM" firstAttribute="leading" secondItem="zPM-nY-4mc" secondAttribute="leading" id="fek-lc-aaH"/>
                             <constraint firstItem="Jxh-25-uwo" firstAttribute="leading" secondItem="zPM-nY-4mc" secondAttribute="leading" id="fnl-Sf-h5M"/>
                             <constraint firstItem="SJC-sU-OS8" firstAttribute="trailing" secondItem="W2S-mT-zXM" secondAttribute="trailing" id="op0-8l-RXM"/>

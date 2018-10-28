@@ -11,18 +11,24 @@ import XCTest
 
 class ApiClientAndModelTests: XCTestCase {
 
+    var catalogueViewModel: CatalogueViewModel!
+    var mockApiClient: MockApiClient!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        mockApiClient = MockApiClient()
+        catalogueViewModel = CatalogueViewModel(mockApiClient)
     }
-
+    
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        catalogueViewModel = nil
+        mockApiClient = nil
+        super.tearDown()
     }
-
 
     func testVideoCatalogueApiService() {
-        let apiClient = ApiClient()
-        apiClient.networkRequest(.videoCatalogue) { (data, error) in
+        #warning("TODO: 🚧👷🏻‍♂️Yi: Refactor based on format 🚧")
+        mockApiClient.networkRequest(.videoCatalogue) { (data, error) in
             guard error != nil else {
                 print("Error: \(error.debugDescription)")
                 return
@@ -43,9 +49,9 @@ class ApiClientAndModelTests: XCTestCase {
     }
     
     func testVideoCatalogueModelWithCorrectMockData() {
-        let apiClient = MockApiClient()
-        apiClient.jsonFileName = .vcResponse_correct
-        apiClient.networkRequest(.videoCatalogue) { (data, error) in
+        #warning("TODO: 🚧👷🏻‍♂️Yi: Refactor based on format 🚧")
+        mockApiClient.jsonFileName = .vcResponse_correct
+        mockApiClient.networkRequest(.videoCatalogue) { (data, error) in
             XCTAssertTrue(data != nil)
             if let error = error {
                 if let data = data {
@@ -63,9 +69,9 @@ class ApiClientAndModelTests: XCTestCase {
     }
     
     func testVideoCatalogueModelWithEmptyMockData() {
-        let apiClient = MockApiClient()
-        apiClient.jsonFileName = .vcResponse_empty
-        apiClient.networkRequest(.videoCatalogue) { (data, error) in
+        #warning("TODO: 🚧👷🏻‍♂️Yi: Refactor based on format 🚧")
+        mockApiClient.jsonFileName = .vcResponse_empty
+        mockApiClient.networkRequest(.videoCatalogue) { (data, error) in
             if let error = error {
                 print("Error: \(error)")
             } else {
@@ -85,39 +91,3 @@ class ApiClientAndModelTests: XCTestCase {
 }
 
 
-class MockApiClient: ApiClient {
-    
-    enum JsonFileName: String {
-        case vcResponse_correct = "VideoCatalogueAPIResponse"
-        case vcResponse_empty = "VideoCatalogueAPIResponse_empty"
-        case vcResponse_incorrect = "VideoCatalogueAPIResponse_incorrect"
-    }
-    
-    var jsonFileName: JsonFileName = .vcResponse_correct
-    
-    //Use mock response data
-    override func networkRequest(_ config: ApiConfig, completionHandler: @escaping ((Data?, RequestError?) -> Void)) {
-        guard let jsonData = JsonFileLoader.loadJson(fileName: jsonFileName.rawValue) else {
-            completionHandler(nil, RequestError("Video Catalogue information failed."))
-            return
-        }
-        completionHandler(jsonData, nil)
-    }
-}
-
-class JsonFileLoader {
-    
-    class func loadJson(fileName: String) -> Data? {
-        if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
-            do {
-                return try NSData(contentsOf: url) as Data
-            } catch let error {
-                print("Error!! Unable to parse  \(fileName).json\n error: \(error)")
-            }
-            print("Error!! Unable to load  \(fileName).json")
-        } else {
-            print("invalid url")
-        }
-        return nil
-    }
-}
