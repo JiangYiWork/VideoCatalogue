@@ -44,24 +44,31 @@ class ApiClientAndModelTests: XCTestCase {
             responseData = data
             let decoder = JSONDecoder()
             do {
-                let model = try decoder.decode([Catalogue].self, from: data)
-                responseModel = model
+                responseModel = try decoder.decode([Catalogue].self, from: data)
             } catch {
                 XCTFail()
             }
+            
+            // Assert
+            XCTAssert(responseData != nil, "The API service doesn't response correct data back.")
+            XCTAssert(responseData != nil, "The API service's response data can't be decode by some reasons.")
+            XCTAssert(responseModel?.count == 0, "The API service responses empty data back.")
+            XCTAssert((responseModel?.count)! > 3, "The API service should responses only 3 catalogues in json.")
         }
         
-        // Assert
-        XCTAssert(responseData != nil, "The API service doesn't response correct data back.")
-        XCTAssert(responseModel != nil, "The API service's response data can't be decode by some reasons.")
-        XCTAssert(responseModel?.count == 0, "The API service responses empty data back.")
-        XCTAssert((responseModel?.count)! > 3, "The API service should responses only 3 catalogues in json.")
         
     }
     
     func testVideoCatalogueModelWithCorrectMockData() {
-        #warning("TODO: 🚧👷🏻‍♂️Yi: Refactor based on format 🚧")
+        // Given
         mockApiClient.jsonFileName = .vcResponse_correct
+        var responseData: Data? = nil
+        var responseModel: [Catalogue]? = nil
+        
+        // When
+        
+        // Assert
+        
         mockApiClient.networkRequest(.videoCatalogue) { (data, error) in
             XCTAssertTrue(data != nil)
             if let error = error {
