@@ -38,13 +38,15 @@ class CatalogueViewModelTests: XCTestCase {
     }
     
     func testFetchCatalogueFail() {
-        #warning("TODO: 🚧👷🏻‍♂️Yi: Test Fetch Catalogue Fail🚧")
-        
         // Given
+        let error: RequestError? = RequestError("Failed to fetch catalogues")
         
         // When
+        catalogueViewModel.fetchCatalogue()
+        mockApiClient.fetchFail(error: error)
         
         // Assert
+        XCTAssertEqual(catalogueViewModel.alertMessage, error?.errorDescription)
     }
     
     func testRearrangeCatalogueArray() {
