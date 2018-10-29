@@ -27,25 +27,36 @@ class ApiClientAndModelTests: XCTestCase {
     }
 
     func testVideoCatalogueApiService() {
-        #warning("TODO: 🚧👷🏻‍♂️Yi: Refactor based on format 🚧")
-        mockApiClient.networkRequest(.videoCatalogue) { (data, error) in
+        // Given
+        let realApiClient = ApiClient()
+        var responseData: Data? = nil
+        var responseModel: [Catalogue]? = nil
+        
+        // When
+        realApiClient.networkRequest(.videoCatalogue) { (data, error) in
             guard error != nil else {
                 print("Error: \(error.debugDescription)")
                 return
             }
             guard let data = data else {
-                XCTFail()
                 return
             }
+            responseData = data
             let decoder = JSONDecoder()
             do {
                 let model = try decoder.decode([Catalogue].self, from: data)
-                XCTAssertTrue(model.count > 0)
-                dump(model)
+                responseModel = model
             } catch {
                 XCTFail()
             }
         }
+        
+        // Assert
+        XCTAssert(responseData != nil, "The API service doesn't response correct data back.")
+        XCTAssert(responseModel != nil, "The API service's response data can't be decode by some reasons.")
+        XCTAssert(responseModel?.count == 0, "The API service responses empty data back.")
+        XCTAssert((responseModel?.count)! > 3, "The API service should responses only 3 catalogues in json.")
+        
     }
     
     func testVideoCatalogueModelWithCorrectMockData() {
