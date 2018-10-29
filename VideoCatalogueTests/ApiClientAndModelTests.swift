@@ -77,11 +77,8 @@ class ApiClientAndModelTests: XCTestCase {
             // Assert
             XCTAssert(error == nil, "Network request got error.")
             XCTAssert(data != nil, "The API service doesn't response correct data back.")
-            XCTAssert(data != nil, "The API service's response data can't be decode by some reasons.")
-            guard let responseModel = responseModel else {
-                XCTFail("The Model is nil. It means decode JSON failed some way somehow.")
-                return
-            }
+            XCTAssert(responseModel != nil, "The API service's response data can't be decode by some reasons.")
+            guard let responseModel = responseModel else { return }
             XCTAssertTrue(responseModel.count == 3, "The mock data has THREE catalogues.")
         }
     }
@@ -104,12 +101,38 @@ class ApiClientAndModelTests: XCTestCase {
             // Assert
             XCTAssert(error == nil, "Network request got error.")
             XCTAssert(data != nil, "The API service doesn't response correct data back.")
-            XCTAssert(data != nil, "The API service's response data can't be decode by some reasons.")
-            guard let responseModel = responseModel else {
-                XCTFail("The Model is nil. It means decode JSON failed some way somehow.")
-                return
-            }
+            XCTAssert(responseModel != nil, "The API service's response data can't be decoded by some reasons.")
+            guard let responseModel = responseModel else { return }
             XCTAssertTrue(responseModel.count == 0, "The mock data has ZERO catalogues.")
+        }
+    }
+    
+    func testVideoCatalogueModelWithIncorrectMockData() {
+        // Given
+        mockApiClient.jsonFileName = .vcResponse_incorrect
+        var responseModel: [Catalogue]? = nil
+        
+        // When
+        mockApiClient.networkRequest(.videoCatalogue) { (data, error) in
+            var decodeError: Error? = nil
+            if error == nil {
+                if let data = data {
+                    let decoder = JSONDecoder()
+                    do {
+                        responseModel = try decoder.decode([Catalogue].self, from: data)
+                    } catch {
+                        print("Error info: \(error)")
+                        decodeError = error
+                    }
+                    dump(responseModel)
+                }
+            }
+            
+            // Assert
+            XCTAssert(error == nil, "Network request got error.")
+            XCTAssert(decodeError != nil, "The decode should has error as the mock data is incorrect.")
+            XCTAssert(data != nil, "The API service doesn't response correct data back.")
+            XCTAssert(responseModel == nil, "The API service's response data shouldn't be decoded.")
         }
     }
 }
