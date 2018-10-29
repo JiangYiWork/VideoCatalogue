@@ -11,9 +11,10 @@ import Foundation
 class MockApiClient: ApiClient {
     
     enum JsonFileName: String {
-        case vcResponse_correct = "VideoCatalogueAPIResponse"
-        case vcResponse_empty = "VideoCatalogueAPIResponse_empty"
-        case vcResponse_incorrect = "VideoCatalogueAPIResponse_incorrect"
+        case vcResponse_correct = "APIResponse"
+        case vcResponse_empty = "APIResponse_empty"
+        case vcResponse_incorrect = "APIResponse_incorrect"
+        case vcResponse_
     }
     
     var jsonFileName: JsonFileName = .vcResponse_correct
