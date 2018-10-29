@@ -26,13 +26,15 @@ class CatalogueViewModelTests: XCTestCase {
     }
 
     func testFetchCatalogue() {
-        #warning("TODO: 🚧👷🏻‍♂️Yi: Test fetch catalogue🚧")
-
         // Given
+        mockApiClient.completeCatalogues = [Catalogue]()
+        mockApiClient.jsonFileName = .vcResponse_correct
         
         // When
+        catalogueViewModel.fetchCatalogue()
         
         // Assert
+        XCTAssert(mockApiClient.isNetworkRequestCalled, "CatalogueViewModel.fetchCatalogue should call ApiClient.networkRequest(_ config:, completionHandler:)")
     }
     
     func testFetchCatalogueFail() {

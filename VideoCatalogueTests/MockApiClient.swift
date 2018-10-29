@@ -14,18 +14,32 @@ class MockApiClient: ApiClient {
         case vcResponse_correct = "APIResponse"
         case vcResponse_empty = "APIResponse_empty"
         case vcResponse_incorrect = "APIResponse_incorrect"
-        case vcResponse_
+        case vcResponse_rearangeLessCatalogues = "APIResponseRearrangeLessCatalogues"
+        case vcResponse_rearangeMoreCatalogues = "APIResponseRearrangeMoreCatalogues"
+        case vcResponse_rearangeMessyCatalogues = "APIResponseRearrangeMessyCatalogues"
     }
     
     var jsonFileName: JsonFileName = .vcResponse_correct
+    var isNetworkRequestCalled = false
+    var completeCatalogues = [Catalogue]()
+    var completionHandler: ((Data?, RequestError?) -> Void)!
     
     //Use mock response data
     override func networkRequest(_ config: ApiConfig, completionHandler: @escaping ((Data?, RequestError?) -> Void)) {
+        isNetworkRequestCalled = true
         guard let jsonData = JsonFileLoader.loadJson(fileName: jsonFileName.rawValue) else {
             completionHandler(nil, RequestError("Video Catalogue information failed."))
             return
         }
         completionHandler(jsonData, nil)
+    }
+    
+    func fetchSuccess(data: Data?) {
+        completionHandler(data, nil)
+    }
+    
+    func fetchFail(error: RequestError?) {
+        completionHandler(nil, error)
     }
 }
 
