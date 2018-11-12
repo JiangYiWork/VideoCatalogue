@@ -12,9 +12,9 @@ struct Item: Codable {
     let title: String?
     let year: Int?
     let description: String?
-    let images: Image?
+    let images: Images?
     
-    struct Image: Codable {
+    struct Images: Codable {
         let portrait: String?
         let landscape: String?
         
@@ -30,6 +30,6 @@ struct Item: Codable {
         title = try container.decode(String.self, forKey: .title)
         year = try container.decode(Int.self, forKey: .year)
         description = try container.decode(String.self, forKey: .description)
-        images = try container.decode(Image.self, forKey: .images)
+        images = try container.decode(Images.self, forKey: .images)
     }
 }

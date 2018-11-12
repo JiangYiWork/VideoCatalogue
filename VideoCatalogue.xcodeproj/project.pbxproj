@@ -41,6 +41,7 @@
 		A2D481FB2182D2CF009E6E9F /* APIResponse_incorrect.json in Resources */ = {isa = PBXBuildFile; fileRef = A2D481F92182D2CF009E6E9F /* APIResponse_incorrect.json */; };
 		A2D481FD218333D7009E6E9F /* CatalogueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481FC218333D7009E6E9F /* CatalogueViewModel.swift */; };
 		A2D481FE218333D7009E6E9F /* CatalogueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D481FC218333D7009E6E9F /* CatalogueViewModel.swift */; };
+		A2FBFF70218FEE37007A61D6 /* CatalogueViewModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FBFF6F218FEE37007A61D6 /* CatalogueViewModeling.swift */; };
 		E5222FC93312CC65E155090F /* Pods_VideoCatalogueUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2BFD9173A7E0CFD91A2ABB /* Pods_VideoCatalogueUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		A2D481F621820F55009E6E9F /* APIResponse_empty.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = APIResponse_empty.json; sourceTree = "<group>"; };
 		A2D481F92182D2CF009E6E9F /* APIResponse_incorrect.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APIResponse_incorrect.json; sourceTree = "<group>"; };
 		A2D481FC218333D7009E6E9F /* CatalogueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewModel.swift; sourceTree = "<group>"; };
+		A2FBFF6F218FEE37007A61D6 /* CatalogueViewModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewModeling.swift; sourceTree = "<group>"; };
 		DD48BA930081C11D658F723F /* Pods-VideoCatalogue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoCatalogue.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoCatalogue/Pods-VideoCatalogue.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				A2D481FC218333D7009E6E9F /* CatalogueViewModel.swift */,
+				A2FBFF6F218FEE37007A61D6 /* CatalogueViewModeling.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				A2D4817F21809D4A009E6E9F /* VideoCatalogue.xcdatamodeld in Sources */,
 				A25491B621848DFA00061CA2 /* CatalogueTableViewCell.swift in Sources */,
 				A25491BB2184BA1400061CA2 /* CarouselCollectionViewCell.swift in Sources */,
+				A2FBFF70218FEE37007A61D6 /* CatalogueViewModeling.swift in Sources */,
 				A25491BD2185E1C800061CA2 /* AssetViewController.swift in Sources */,
 				A25491B42184887B00061CA2 /* CatalogueTableViewController.swift in Sources */,
 				A2D481FD218333D7009E6E9F /* CatalogueViewModel.swift in Sources */,

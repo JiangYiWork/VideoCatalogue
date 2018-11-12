@@ -15,7 +15,10 @@ class CatalogueTableViewController: UIViewController {
     
     lazy var viewModel: CatalogueViewModel = {
         return CatalogueViewModel()
-    }()
+    }
+    
+    var viewModelInjected: CatalogueViewModeling!
+    
     private let refreshControl = UIRefreshControl()
     private var selectedItem: Item?
     
@@ -43,7 +46,7 @@ class CatalogueTableViewController: UIViewController {
     
     // MARK: - Events and Data binding
     private func initViewModel() {
-        viewModel.showAlert = { () in
+        viewModel.hasAlertMessage = { () in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self,
                     let message = self.viewModel.alertMessage
@@ -58,17 +61,17 @@ class CatalogueTableViewController: UIViewController {
             }
         }
         
-        viewModel.didUpdateCatalogue = { [weak self] () in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
+        viewModel.didUpdateCatalogue = {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
                 self.viewModel.arrangeCatalogues()
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
             }
         }
         
-        viewModel.updateLoadingStatus = { [weak self] () in
-            DispatchQueue.main.async {
+        viewModel.updateLoadingStatus = { ()
+            DispatchQueue.main.async { [weak self] in
                 let isLoading = self?.viewModel.isLoading ?? false
                 if isLoading {
                     self?.loadingIndicator.startAnimating()

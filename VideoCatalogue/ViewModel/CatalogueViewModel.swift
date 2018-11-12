@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CatalogueViewModel {
+class CatalogueViewModel: CatalogueViewModeling {
     
     let apiClient: ApiClient
     
@@ -26,7 +26,7 @@ class CatalogueViewModel {
     
     var alertMessage: String? {
         didSet {
-            showAlert?()
+            hasAlertMessage?()
         }
     }
     
@@ -39,7 +39,7 @@ class CatalogueViewModel {
     var hasError: ((RequestError) -> Void)?
     var didUpdateCatalogue: (() -> Void)?
     var updateLoadingStatus: (() -> Void)?
-    var showAlert: (() -> Void)?
+    var hasAlertMessage: (() -> Void)?
     
     init(_ apiClient: ApiClient = ApiClient()) {
         self.apiClient = apiClient
