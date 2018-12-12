@@ -15,7 +15,7 @@ class CatalogueTableViewController: UIViewController {
     
     lazy var viewModel: CatalogueViewModel = {
         return CatalogueViewModel()
-    }
+    }()
     
     var viewModelInjected: CatalogueViewModeling!
     

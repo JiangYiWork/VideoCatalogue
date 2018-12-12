@@ -40,7 +40,6 @@ extension CatalogueTableViewCell: UICollectionViewDataSource, UICollectionViewDe
         return catalogue?.items?.count ?? 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarouselCell", for: indexPath) as! CarouselCollectionViewCell
         if let item = catalogue?.items?[indexPath.row],
         let posterUrlString = isFeatures ? item.images?.landscape : item.images?.portrait
@@ -74,7 +73,7 @@ extension CatalogueTableViewCell: UICollectionViewDataSource, UICollectionViewDe
     
 }
 
-protocol CatalogueTableViewCellDelegate {
+protocol CatalogueTableViewCellDelegate: class {
     func selectedAsset(_ item: Item)
 }
 
